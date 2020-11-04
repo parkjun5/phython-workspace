@@ -10,3 +10,5 @@ for student in range(1,11):
         print("오늘 수업 여기까지 {0}번 따라와".format(student))
         break
     print("{0}번 읽어봐".format(student))
+
+
