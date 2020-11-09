@@ -19,5 +19,14 @@
 ## init 패키지에서 __all__ 으로 설정해주면 가능한다.
 from travel import *
 
-trip_to = vietnam.VietnamPackage()
+trip_to = thailand.ThailandPackage()
 trip_to.detail()
+
+
+## inspect는 해당 import 파일이 어디있는지 알려준다/.
+## 다 만든 모듈은 LIB에서 넣어서 다른 프로젝트에서도 사용가능하다 
+# ㄱ굴;
+import inspect
+import random
+
+print(inspect.getfile(thailand))
