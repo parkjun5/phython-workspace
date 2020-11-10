@@ -114,4 +114,52 @@
 # print(temp_count)
 # temp = chr(temp_count+1)
 
-# print(temp)
+# # print(temp)
+# a,b = input().split()
+# print(int(a)//int(b))
+
+# a = int(input())+1
+
+# print(a)
+
+# a, b = input().split()
+# a = int(a)
+# b = int(b)
+
+# print(a+b)
+# print(a-b)
+# print(a*b)
+# print(a//b)
+# print(a%b)
+
+# print("%0.2f"%round(a/b,2))
+
+# a, b, c = input().split()
+# a = int(a)
+# b = int(b)
+# c = int(c)
+# d = a+b+c
+# print(d)
+# print(round(d/3.0,1))
+
+# #쉬프트 연산
+
+# a = int(input())
+# print(a>>1)
+# print(a>>2)
+# print(a<<1)
+# print(a<<2)
+
+# a, b = input().split()
+
+# a = int(a)
+# b = int(b)
+
+# print(a <<b)
+a, b = input().split()
+a = int(a)
+b = int(b)
+if a>b :
+    print(1)
+else:
+    print(0)
