@@ -32,8 +32,16 @@ to_x = 0
 to_y = 0
 
 #이동 속도 
-
 character_speed = 0.6
+
+# 적 enemy  캐릭터!
+enemy = pygame.image.load("D:\\Users\\박세준\\Desktop\\phython workspace\\gameMaking\\pygame_basic\\enemy.png")
+enemy_size = enemy.get_rect().size #이미지에서 사각형을 가져와서 크기를 구해옴
+enemy_width  = enemy_size[0] # 캐릭터의 가로크기
+enemy_height =enemy_size[1] ##캐릭터의 세로 크기
+enemy_x_pos  = (screen_width / 2) - (enemy_width / 2) # 화면 가로 절반크기에 해당하는 곳에 위치 (가로위치) 
+enemy_y_pos  = (screen_height /2 ) - (enemy_height / 2)   ## 화면 세로크기  가장 아래에 (세로 위치)
+
 
 ## 어디선가 대기시켜야한다 동작 검사 이벤트 루프
 # 이벤트 루프
@@ -86,9 +94,28 @@ while running :
     elif character_y_pos > screen_height -character_height:
         character_y_pos = screen_height - character_height
 
+    ## 충돌처리를 위한 정보 업데이트
+    character_rect = character.get_rect() ## 캐릭터 사각형 받아오기
+    # 원래 rect는 초반 0.0 의 값을 가지기 떄문에 값을 변형시켜주는데
+    # 레프트와 탑만 바꿔주면 된다.
+    character_rect.left = character_x_pos
+    character_rect.top =  character_y_pos
+    # 적군의 현재 위치도 계속 반영해준다.
+    enemy_rect = enemy.get_rect()
+    enemy_rect.left = enemy_x_pos
+    enemy_rect.top = enemy_y_pos 
+
+    # 캐릭터와 적군이 충돌했는지 체크
+    # colliderect 내장함수는 사각형 기준으로 충돌을 확인하는 함수 확인하고자 하는
+    ## 랙트를 괄호에 넣어준다
+    if character_rect.colliderect(enemy_rect):
+        print("충돌했어요;;")
+        running = False
+
     screen.blit(background, (0,0)) ## 배경 만들어주기  + 백그라운드와 위치 0,0
 
     screen.blit(character, (character_x_pos, character_y_pos ) ) #캐릭터 그려주기
+    screen.blit(enemy, (enemy_x_pos, enemy_y_pos)) # 적 그리기 
 
     pygame.display.update() ## 게임화면을 다시그리기 계속 업데이트 해줘야한다.
 
