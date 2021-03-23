@@ -1,6 +1,5 @@
 import sys
 n = int(sys.stdin.readline().rstrip())
-print(n)
 mon = 50000
 count = 0
 # while mon >= 10:
