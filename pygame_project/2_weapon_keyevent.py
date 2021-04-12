@@ -29,6 +29,7 @@ image_path = os.path.join(current_path, "images")
 background =pygame.image.load(os.path.join(image_path, "background.png"))
 
 #스테이지 처리
+#おはようございます。
 
 stage =pygame.image.load(os.path.join(image_path, "stage.png"))
 stage_size = stage.get_rect().size
